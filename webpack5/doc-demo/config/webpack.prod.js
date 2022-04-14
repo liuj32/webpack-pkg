@@ -9,6 +9,21 @@ const prodConfig = {
     path: path.join(__dirname, '..', 'dist'),
     clean: true, // webapck5新增
   },
+  optimization: {
+    runtimeChunk: 'single',
+    // splitChunks: {
+    //   chunks: 'all',
+    // },    
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   // devtool: 'inline-source-map',
 }
 

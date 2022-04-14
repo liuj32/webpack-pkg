@@ -9,8 +9,8 @@ const srcPath = path.join(__dirname, '..', 'src')
 
 module.exports = {
   entry: {
-    index: path.join(srcPath, 'index'),
-    another: path.join(srcPath, 'another-module'),
+    index:  path.join(srcPath, 'index'),
+    // another: path.join(srcPath, 'another-module'),
     // vendor: path.join(srcPath, 'vendor'), // 第三方库
   },
   module: {
