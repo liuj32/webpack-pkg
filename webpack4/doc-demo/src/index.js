@@ -1,5 +1,14 @@
-import './moduleA'
-import './moduleB'
+import _ from 'lodash';
+import Print from './print';
 
-// fn1()  // 注意要调用这个函数，不然会被默认tree-shaking掉
-// call1()
+ function component() {
+   const element = document.createElement('div');
+
+   // lodash 是由当前 script 脚本 import 进来的
+   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  element.onclick = Print.bind(null, 'Hello webpack！！');
+
+   return element;
+ }
+
+ document.body.appendChild(component());
