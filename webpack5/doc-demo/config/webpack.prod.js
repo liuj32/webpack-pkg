@@ -5,8 +5,13 @@ const commonConfig = require('./webpack.common.js')
 const prodConfig = {
   mode: 'production',
   output: {
-    filename: '[name].[contenthash].bundle.js',
     path: path.join(__dirname, '..', 'dist'),
+    filename: '[name].[contenthash].bundle.js',
+    // filename: 'webpack-numbers.js',
+    // library: {
+    //   name: 'webpackNumbers',
+    //   type: 'umd',
+    // },
     clean: true, // webapck5新增
   },
   optimization: {
