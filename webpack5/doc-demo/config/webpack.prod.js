@@ -3,10 +3,12 @@ const { merge } = require('webpack-merge')
 const commonConfig = require('./webpack.common.js')
 
 const prodConfig = {
-  mode: 'production',
+  mode: 'development',
+  // mode: 'production',
   output: {
     path: path.join(__dirname, '..', 'dist'),
     filename: '[name].[contenthash].bundle.js',
+    // chunkFilename: '[id].js',
     // filename: 'webpack-numbers.js',
     // library: {
     //   name: 'webpackNumbers',

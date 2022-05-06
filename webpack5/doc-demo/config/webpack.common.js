@@ -4,6 +4,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const json5 = require('json5')
 const srcPath = path.join(__dirname, '..', 'src')
+const { FileListPlugin } = require('../plugin/file-list-plugin.js');
 
 // console.log(process.env.NODE_ENV) // process.env只能在配置文件中访问， 除非设置了全局变量
 
@@ -15,6 +16,18 @@ module.exports = {
   },
   module: {
     rules: [
+      // 自定义loader
+      // {
+      //   test: /\.txt$/,
+      //   use: [
+      //     {
+      //       loader: path.resolve('path/to/loader.js'),
+      //       options: {
+      //         /* ... */
+      //       },
+      //     },
+      //   ],        
+      // },
       {
         test: /\.js$/,
         use: ['babel-loader'], // 1. 开启缓存
@@ -60,6 +73,10 @@ module.exports = {
       //   removeComments: true, // 删除注释
       //   collapseWhitespace: true  // 删除空格
       // }
-    })
+    }),
+    // 使用任意支持的选项
+    new FileListPlugin({
+      outputFile: 'my-assets.md',
+    }),
   ]
 }
